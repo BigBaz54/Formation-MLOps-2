@@ -28,6 +28,7 @@ jobs:
       - name: Run functional tests
         run: make tests-fonctionnels
   qualite:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
