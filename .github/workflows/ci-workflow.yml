@@ -24,6 +24,6 @@ jobs:
       - name: Run Vulture
         run:  vulture scripts/ setup.py --min-confidence 80
       - name: Run tests
-        run:  make tests
+        run:  make tests-unitaires
 
 
