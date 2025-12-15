@@ -3,5 +3,6 @@ Feature: Model training
   # Add task names
   Scenario: train the model when training data is available
      Given training data is available
+     Given there is a dir for test data
       When I launch the training
       Then a model is added to the model registry

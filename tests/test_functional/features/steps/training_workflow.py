@@ -11,10 +11,12 @@ training_data_path = test_data_path + 'sub_eolienne_data.csv'
 features_path = test_data_path + 'prepared_features.parquet'
 model_registry_folder = test_data_path
 
+@given('there is a dir for test data')
+def step_impl_given2(context):
+    assert len(os.listdir(test_data_path)) == 1
 
 @given('training data is available')
 def step_impl_given(context):
-    assert len(os.listdir(test_data_path)) == 1
     assert os.path.exists(training_data_path)
 
 
