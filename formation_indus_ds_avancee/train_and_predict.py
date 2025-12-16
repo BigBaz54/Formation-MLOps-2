@@ -1,6 +1,7 @@
 import os
 import time
 
+import logging
 import joblib
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
@@ -21,6 +22,7 @@ def train_model(features: pd.DataFrame, model_registry_folder: str) -> None:
     ts = time.strftime('%Y%m%d-%H%M%S')
     model_name = f'model_{ts}.joblib'
     joblib.dump(model, os.path.join(model_registry_folder, model_name))
+    joblib.dump(model, os.path.join(model_registry_folder, 'latest_model.joblib'))
 
 
 def predict_with_io(features_path: str, model_path: str, predictions_folder: str) -> None:
