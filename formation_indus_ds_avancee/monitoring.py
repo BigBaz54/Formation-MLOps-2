@@ -1,5 +1,4 @@
 import os
-import random
 
 import pandas as pd
 from sqlalchemy import create_engine
@@ -25,7 +24,7 @@ def monitor(latest_predictions: pd.DataFrame) -> pd.DataFrame:
     proportion_positive = (latest_predictions['predictions'] > 0).mean()
     monitoring_df = pd.DataFrame([{
         "predictions_time": latest_predictions.loc[0, 'predictions_time'],
-        "proportion_pred_pos": proportion_positive + random.random()
+        "proportion_pred_pos": proportion_positive
     }])
     # End filling function
     return monitoring_df
